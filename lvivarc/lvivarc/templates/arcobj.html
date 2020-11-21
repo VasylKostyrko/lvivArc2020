@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang=uk>
+    <head>
+        <meta charset="UTF-8">
+        <title>Архітектура</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+       <div class="container-fluid">
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+             <a class="navbar-brand" href="{% url 'listobj' type.id %}">
+                <p class="text-primary">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <strong>{{ type.typeName }}</strong>
+                </p>
+             </a>
+          </div>
+        </nav>
+        <div class="text-center page-header container-fluid"
+            style="font-family:Times; background-color: #eeeeff">
+            <h1>{{ obj.objName }}</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <img src="{{ obj.image.url }}"
+                    alt="{{ obj.objName }}"/>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <p class="text-justify">
+                    {{ obj.descr }}
+                </p>
+                </br>
+                <p>
+                    {% if obj.curAddress %}
+                        Сучасна адреса: {{ obj.curAddress }}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+      </div>
+    </body>
+</html>
